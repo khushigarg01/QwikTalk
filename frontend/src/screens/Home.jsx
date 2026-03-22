@@ -16,9 +16,15 @@ const Home = () => {
         e.preventDefault()
         console.log({ projectName })
 
-        axios.post('/projects/create', {
-            name: projectName,
-        })
+        axios.post(
+    '/projects/create',
+    { name: projectName },
+    {
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`
+        }
+    }
+)
             .then((res) => {
                 console.log(res)
                 setIsModalOpen(false)
