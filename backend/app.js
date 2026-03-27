@@ -11,7 +11,10 @@ connect();
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://qwiktalkai.vercel.app',
+    credentials: true
+}));
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
